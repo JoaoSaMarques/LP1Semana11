@@ -11,5 +11,9 @@ namespace GuessTheNumber
 
         //will be used for main and build the project
         public GameController()
+        {
+            gameModel = new GameModel();
+            gameView = new GameView();
+        }
     }
 }
