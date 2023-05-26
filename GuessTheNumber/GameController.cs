@@ -29,7 +29,10 @@ namespace GuessTheNumber
             //loop
             while (!gameModel.GuessedCorrectly)
             {
-
+                //Display hot or cold
+                gameView.DisplayGuessPrompt();
+                //Every time the player types a number to guess
+                int guess = gameView.GetPlayerGuess();
             }
     }
 }
