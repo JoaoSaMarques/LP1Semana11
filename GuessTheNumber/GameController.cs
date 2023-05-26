@@ -52,5 +52,8 @@ namespace GuessTheNumber
             }
         }
 
+        //Win message
+        gameView.DisplayExitMessage();
+
     }
 }
