@@ -55,5 +55,13 @@ namespace GuessTheNumber
             else
                 Console.WriteLine("Too high! Try again.");
         }
+
+        /// <summary>
+        /// After you finish the game it'll display this message
+        /// </summary>
+        public void DisplayExitMessage()
+        {
+            Console.WriteLine("Thank you for playing Guess the Number!");
+        }
     }
 }
