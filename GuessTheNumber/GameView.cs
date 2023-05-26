@@ -42,5 +42,18 @@ namespace GuessTheNumber
             Console.WriteLine("Congratulations! You guessed the number right!");
             Console.WriteLine("Number of attempts: " + attempts);
         }
+
+        /// <summary>
+        /// If the number is either 
+        /// too low it'll be cold, if it's too high it'll be hot
+        /// </summary>
+        /// <param name="isTooLow"></param>
+        public void DisplayHint(bool isTooLow)
+        {
+            if (isTooLow)
+                Console.WriteLine("Too low! Try again.");
+            else
+                Console.WriteLine("Too high! Try again.");
+        }
     }
 }
