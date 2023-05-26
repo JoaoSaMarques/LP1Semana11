@@ -29,7 +29,7 @@ namespace GuessTheNumber
             //loop
             while (!gameModel.GuessedCorrectly)
             {
-                //Display hot or cold
+                //Display number guessed
                 gameView.DisplayGuessPrompt();
                 //Every time the player types a number to guess
                 int guess = gameView.GetPlayerGuess();
@@ -44,6 +44,11 @@ namespace GuessTheNumber
                 gameModel.GuessedCorrectly = true;
                 //Success write line
                 gameView.DisplaySuccessMessage(gameModel.Attempts);
+            }
+            else
+            {
+                //Display hot or cold
+                gameView.DisplayHint(guess < gameModel.TargetNumber);
             }
         }
 
