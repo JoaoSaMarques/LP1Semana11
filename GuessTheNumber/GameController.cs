@@ -40,7 +40,10 @@ namespace GuessTheNumber
             //If the player correctly inputs the number
             if (guess == gameModel.TargetNumber)
             {
-
+                //Victory condition
+                gameModel.GuessedCorrectly = true;
+                //Success write line
+                gameView.DisplaySuccessMessage(gameModel.Attempts);
             }
         }
 
