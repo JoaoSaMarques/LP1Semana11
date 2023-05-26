@@ -23,5 +23,14 @@ namespace GuessTheNumber
         {
             Console.Write("Take a guess: ");
         }
+
+        /// <summary>
+        /// Convert player's string into a readable int for program.
+        /// </summary>
+        /// <returns></returns>
+        public int GetPlayerGuess()
+        {
+            return Convert.ToInt32(Console.ReadLine());
+        }
     }
 }
