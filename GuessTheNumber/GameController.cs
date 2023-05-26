@@ -34,5 +34,15 @@ namespace GuessTheNumber
                 //Every time the player types a number to guess
                 int guess = gameView.GetPlayerGuess();
             }
+            //Attempts will increment
+            gameModel.Attempts++;
+
+            //If the player correctly inputs the number
+            if (guess == gameModel.TargetNumber)
+            {
+
+            }
+        }
+
     }
 }
