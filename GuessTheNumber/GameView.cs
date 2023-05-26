@@ -32,5 +32,15 @@ namespace GuessTheNumber
         {
             return Convert.ToInt32(Console.ReadLine());
         }
+
+        /// <summary>
+        /// If player succeeded, this will display the number of attempts.
+        /// </summary>
+        /// <param name="attempts"></param>
+        public void DisplaySuccessMessage(int attempts)
+        {
+            Console.WriteLine("Congratulations! You guessed the number right!");
+            Console.WriteLine("Number of attempts: " + attempts);
+        }
     }
 }
