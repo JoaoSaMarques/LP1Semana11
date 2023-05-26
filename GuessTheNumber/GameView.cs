@@ -15,5 +15,13 @@ namespace GuessTheNumber
             Console.WriteLine("Welcome to Guess the Number!");
             Console.WriteLine("I have chosen a number between 1 and 100.");
         }
+
+        /// <summary>
+        /// Guess the number that was randomly generated
+        /// </summary>
+        public void DisplayGuessPrompt()
+        {
+            Console.Write("Take a guess: ");
+        }
     }
 }
