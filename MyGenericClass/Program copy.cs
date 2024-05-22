@@ -25,6 +25,25 @@ namespace MyGenericClass
             return i == 0? _item1 : i == 1? _item2 : _item3;
         }
 
-        
+        public void SetItem(int i, T item)
+        {
+            if (i < 0 || i > 2)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            if (i == 0)
+            {
+                _item1 = item;
+            }
+            else if (i == 1)
+            {
+                _item2 = item;
+            }
+            else
+            {
+                _item3 = item;
+            }
+        }
     }
 }
