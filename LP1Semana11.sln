@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeforeUtils", "BeforeUtils\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGenericClass", "MyGenericClass\MyGenericClass.csproj", "{1922D91E-7B8A-41B3-A601-50AE88316574}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyEnumerable", "MyEnumerable\MyEnumerable.csproj", "{0F45E930-6F84-442D-91B7-F70DD2A3DB9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{1922D91E-7B8A-41B3-A601-50AE88316574}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1922D91E-7B8A-41B3-A601-50AE88316574}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1922D91E-7B8A-41B3-A601-50AE88316574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F45E930-6F84-442D-91B7-F70DD2A3DB9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F45E930-6F84-442D-91B7-F70DD2A3DB9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F45E930-6F84-442D-91B7-F70DD2A3DB9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F45E930-6F84-442D-91B7-F70DD2A3DB9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
