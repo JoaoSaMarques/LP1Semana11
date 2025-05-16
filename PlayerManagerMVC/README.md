@@ -1,4 +1,10 @@
-﻿```mermaid
+﻿# PlayerManagerMVC
+
+This project manages a list of players with their scores and supports sorting by score or name.
+
+## UML Class Diagram
+
+```mermaid
 classDiagram
     class Player {
         - string Name
