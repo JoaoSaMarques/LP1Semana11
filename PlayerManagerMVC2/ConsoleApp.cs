@@ -1,12 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace PlayerManagerMVC2
 {
-    /// <summary>
-    /// The player listing program.
-    /// </summary>
-    public class Program
+    public class ConsoleApp
     {
         /// The list of all players
         private readonly List<Player> playerList;
@@ -18,33 +15,9 @@ namespace PlayerManagerMVC2
         private readonly IComparer<Player> compareByNameReverse;
 
         /// <summary>
-        /// Program begins here.
-        /// </summary>
-        /// <param name="args">Filename argument expected.</param>
-        private static void Main(string[] args)
-        {
-            if (args.Length == 0)
-            {
-                Console.Error.WriteLine("Error: No input file specified.");
-                Environment.Exit(1);
-            }
-
-            string filename = args[0];
-
-            Program prog = new Program();
-            if (!prog.LoadPlayersFromFile(filename))
-            {
-                Console.Error.WriteLine($"Error: Could not read file '{filename}'.");
-                Environment.Exit(1);
-            }
-
-            prog.Start();
-        }
-
-        /// <summary>
         /// Creates a new instance of the player listing program.
         /// </summary>
-        private Program()
+        public ConsoleApp()
         {
             // Initialize player comparers
             compareByName = new CompareByName(true);
@@ -59,7 +32,7 @@ namespace PlayerManagerMVC2
         /// </summary>
         /// <param name="filename">The path to the file.</param>
         /// <returns>True if successful, false otherwise.</returns>
-        private bool LoadPlayersFromFile(string filename)
+        public bool LoadPlayersFromFile(string filename)
         {
             try
             {
@@ -87,7 +60,7 @@ namespace PlayerManagerMVC2
         /// <summary>
         /// Start the player listing program instance
         /// </summary>
-        private void Start()
+        public void Start()
         {
             IView view = new ConsoleView();
             MenuHandler menuHandler = new MenuHandler(view);
@@ -128,30 +101,6 @@ namespace PlayerManagerMVC2
                 view.WriteLine("\n");
 
             } while (option != "0");
-        }
-
-        /// <summary>
-        /// Shows the main menu.
-        /// </summary>
-        private void ShowMenu()
-        {
-            Console.WriteLine("Menu");
-            Console.WriteLine("----\n");
-            Console.WriteLine("1. Insert player");
-            Console.WriteLine("2. List all players");
-            Console.WriteLine("3. List players with score greater than");
-            Console.WriteLine("4. Sort players");
-            Console.WriteLine("0. Quit\n");
-            Console.Write("Your choice > ");
-        }
-
-        /// <summary>
-        /// Inserts a new player in the player list.
-        /// </summary>
-        private void InsertPlayer()
-        {
-            // This method is now handled by PlayerInputHandler
-            // Kept for compatibility but not used
         }
 
         /// <summary>
