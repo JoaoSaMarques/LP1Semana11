@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerManager4", "PlayerMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerManagerMVC2", "PlayerManagerMVC2\PlayerManagerMVC2.csproj", "{A5D0B57D-4FB5-4223-B3D4-CBB2FE7C60E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathDuel", "MathDuel\MathDuel.csproj", "{FB7916BD-F6F2-4C01-ABED-067F4582D681}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{A5D0B57D-4FB5-4223-B3D4-CBB2FE7C60E9}.Release|x64.Build.0 = Release|Any CPU
 		{A5D0B57D-4FB5-4223-B3D4-CBB2FE7C60E9}.Release|x86.ActiveCfg = Release|Any CPU
 		{A5D0B57D-4FB5-4223-B3D4-CBB2FE7C60E9}.Release|x86.Build.0 = Release|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Debug|x64.Build.0 = Debug|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Debug|x86.Build.0 = Debug|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Release|x64.ActiveCfg = Release|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Release|x64.Build.0 = Release|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Release|x86.ActiveCfg = Release|Any CPU
+		{FB7916BD-F6F2-4C01-ABED-067F4582D681}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
