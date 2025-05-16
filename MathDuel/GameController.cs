@@ -56,3 +56,21 @@ namespace MathDuel
             _view.ShowFinalScore(_score);
         }
 
+        public static IEnumerable<MathProblem> GenerateRandomProblems()
+        {
+            Random rand = new Random();
+            while (true)
+            {
+                int a = rand.Next(1, 11);
+                int b = rand.Next(1, 11);
+                int opIndex = rand.Next(3);
+                char op = opIndex switch
+                {
+                    0 => '+',
+                    1 => '-',
+                    2 => '*',
+                    _ => '+'
+                };
+                yield return new MathProblem(op, a, b);
+            }
+        }
