@@ -74,3 +74,37 @@ namespace MathDuel
                 yield return new MathProblem(op, a, b);
             }
         }
+
+        public static IEnumerable<MathProblem> ReadProblemsFromFile(string filename)
+        {
+            if (!File.Exists(filename))
+            {
+                throw new FileNotFoundException($"Problem file not found: {filename}");
+            }
+
+            using StreamReader reader = new StreamReader(filename);
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] parts = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                if (parts.Length != 3)
+                {
+                    continue; // skip invalid lines
+                }
+
+                char op = parts[0][0];
+                if (!int.TryParse(parts[1], out int operand1) || !int.TryParse(parts[2], out int operand2))
+                {
+                    continue; // skip invalid lines
+                }
+
+                if (op != '+' && op != '-' && op != '*')
+                {
+                    continue; // skip invalid operators
+                }
+
+                yield return new MathProblem(op, operand1, operand2);
+            }
+        }
+    }
+}
