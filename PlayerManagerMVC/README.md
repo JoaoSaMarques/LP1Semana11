@@ -7,40 +7,40 @@ This project manages a list of players with their scores and supports sorting by
 ```mermaid
 classDiagram
     class Player {
-        - string Name
-        - int Score
-        + Player(string name, int score)
-        + int CompareTo(Player other)
-        + string ToString()
+        - Name : string
+        - Score : int
+        + Player(name : string, score : int)
+        + CompareTo(other : Player) int
+        + ToString() string
     }
 
     class CompareByName {
-        - bool ord
-        + CompareByName(bool ord)
-        + int Compare(Player p1, Player p2)
+        - ord : bool
+        + CompareByName(ord : bool)
+        + Compare(p1 : Player, p2 : Player) int
     }
 
-    enum PlayerOrder {
-        ByScore = 1
-        ByName = 2
-        ByNameReverse = 3
+    class PlayerOrder {
+        + ByScore
+        + ByName
+        + ByNameReverse
     }
 
     class Program {
-        - List~Player~ playerList
-        - IComparer~Player~ compareByName
-        - IComparer~Player~ compareByNameReverse
-        + Main(string[] args)
-        + void Start()
-        + void ShowMenu()
-        + void InsertPlayer()
-        + static void ListPlayers(IEnumerable~Player~ playersToList)
-        + void ListPlayersWithScoreGreaterThan()
-        + IEnumerable~Player~ GetPlayersWithScoreGreaterThan(int minScore)
-        + void SortPlayerList()
+        - playerList : List
+        - compareByName : IComparer
+        - compareByNameReverse : IComparer
+        + Main(args : string[])
+        + Start() void
+        + ShowMenu() void
+        + InsertPlayer() void
+        + ListPlayers(playersToList : Iterable) void
+        + ListPlayersWithScoreGreaterThan() void
+        + GetPlayersWithScoreGreaterThan(minScore : int) Iterable
+        + SortPlayerList() void
     }
 
-    Player <|.. CompareByName : implements IComparer<Player>
+    CompareByName ..|> IComparer
     Program --> Player
     Program --> CompareByName
     Program --> PlayerOrder
