@@ -20,12 +20,24 @@ namespace PlayerManagerMVC2
         /// <summary>
         /// Program begins here.
         /// </summary>
-        /// <param name="args">Not used.</param>
+        /// <param name="args">Filename argument expected.</param>
         private static void Main(string[] args)
         {
-            // Create a new instance of the player listing program
+            if (args.Length == 0)
+            {
+                Console.Error.WriteLine("Error: No input file specified.");
+                Environment.Exit(1);
+            }
+
+            string filename = args[0];
+
             Program prog = new Program();
-            // Start the program instance
+            if (!prog.LoadPlayersFromFile(filename))
+            {
+                Console.Error.WriteLine($"Error: Could not read file '{filename}'.");
+                Environment.Exit(1);
+            }
+
             prog.Start();
         }
 
@@ -38,12 +50,8 @@ namespace PlayerManagerMVC2
             compareByName = new CompareByName(true);
             compareByNameReverse = new CompareByName(false);
 
-            // Initialize the player list with two players using collection
-            // initialization syntax
-            playerList = new List<Player>() {
-                new Player("Best player ever", 100),
-                new Player("An even better player", 500)
-            };
+            // Initialize the player list as empty
+            playerList = new List<Player>();
         }
 
         /// <summary>
@@ -51,22 +59,22 @@ namespace PlayerManagerMVC2
         /// </summary>
         private void Start()
         {
-            // We keep the user's option here
+            IView view = new ConsoleView();
+            MenuHandler menuHandler = new MenuHandler(view);
+            PlayerInputHandler playerInputHandler = new PlayerInputHandler(view);
+
             string option;
 
-            // Main program loop
             do
             {
-                // Show menu and get user option
-                ShowMenu();
+                menuHandler.ShowMenu();
                 option = Console.ReadLine();
 
-                // Determine the option specified by the user and act on it
                 switch (option)
                 {
                     case "1":
-                        // Insert player
-                        InsertPlayer();
+                        Player newPlayer = playerInputHandler.InsertPlayer();
+                        playerList.Add(newPlayer);
                         break;
                     case "2":
                         ListPlayers(playerList);
@@ -78,19 +86,17 @@ namespace PlayerManagerMVC2
                         SortPlayerList();
                         break;
                     case "0":
-                        Console.WriteLine("Bye!");
+                        menuHandler.Goodbye();
                         break;
                     default:
-                        Console.Error.WriteLine("\n>>> Unknown option! <<<\n");
+                        menuHandler.UnknownOption();
                         break;
                 }
 
-                // Wait for user to press a key...
-                Console.Write("\nPress any key to continue...");
+                view.Prompt("\nPress any key to continue...");
                 Console.ReadKey(true);
-                Console.WriteLine("\n");
+                view.WriteLine("\n");
 
-                // Loop keeps going until players choses to quit (option 4)
             } while (option != "0");
         }
 
@@ -114,22 +120,8 @@ namespace PlayerManagerMVC2
         /// </summary>
         private void InsertPlayer()
         {
-            // Variables
-            string name;
-            int score;
-            Player newPlayer;
-
-            // Ask for player info
-            Console.WriteLine("\nInsert player");
-            Console.WriteLine("-------------\n");
-            Console.Write("Name: ");
-            name = Console.ReadLine();
-            Console.Write("Score: ");
-            score = Convert.ToInt32(Console.ReadLine());
-
-            // Create new player and add it to list
-            newPlayer = new Player(name, score);
-            playerList.Add(newPlayer);
+            // This method is now handled by PlayerInputHandler
+            // Kept for compatibility but not used
         }
 
         /// <summary>
@@ -159,13 +151,14 @@ namespace PlayerManagerMVC2
         /// </summary>
         private void ListPlayersWithScoreGreaterThan()
         {
+            IView view = new ConsoleView();
+
             // Minimum score user should have in order to be shown
             int minScore;
             // Enumerable of players with score higher than the minimum score
             IEnumerable<Player> playersWithScoreGreaterThan;
 
-            // Ask the user what is the minimum score
-            Console.Write("\nMinimum score player should have? ");
+            view.Prompt("\nMinimum score player should have? ");
             minScore = Convert.ToInt32(Console.ReadLine());
 
             // Get players with score higher than the user-specified value
